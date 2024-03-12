@@ -1,13 +1,17 @@
 from datetime import datetime
+import pytz
 
 # Settings
 url = ""
-timezone = ""
+timezone = "Pacific/Auckland"
 timestamps = {}
 
 # Retrive link at specific date and time
 def get_timezone_adjusted_timestamp(timezone, timestamp) -> datetime:
-    pass
+    tz = pytz.timezone(timezone)
+    tz_now = datetime.now(tz)
+
+    return tz_now
 
 # Form autofill script
 def fill_form():
