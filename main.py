@@ -14,9 +14,7 @@ def fill_form():
     pass
 
 def submit_form():
-    timestamp = get_timezone_adjusted_timestamp(timezone, timestamps)
-    # Ex: {"Thursday": "12:30PM", "Friday": "12:30PM"}
-    now = datetime.now()
+    pass
 
 def main():
     print("Running script", flush = True)
