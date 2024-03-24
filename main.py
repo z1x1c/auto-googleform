@@ -1,4 +1,5 @@
 from datetime import datetime
+from time import sleep
 import pytz
 
 # Settings
@@ -6,7 +7,6 @@ url = ""
 timezone = "Pacific/Auckland"
 timestamps = ""
 
-# Retrive link at specific date and time
 def get_timezone_adjusted_timestamp(timezone_str, timestamp_str) -> datetime:
     try:
         timestamp = datetime.fromisoformat(timestamp_str)
@@ -17,7 +17,6 @@ def get_timezone_adjusted_timestamp(timezone_str, timestamp_str) -> datetime:
     except Exception as e:
         print(f"Error converting timestamp to local time ({timezone})")
 
-# Form autofill script
 def fill_form():
     pass
 
@@ -25,7 +24,18 @@ def submit_form():
     pass
 
 def is_time():
-    pass
+    now = datetime.now()
+
+    # Check if it is Thursday
+    is_thursday = now.weekday() == 3
+
+    # Check if it is 12:30PM
+    is_1230_pm = now.hour == 12 and now.minute == 30
+
+    if is_thursday and is_1230_pm:
+        return True
+    else:
+        return False
 
 def form_is_open():
     pass
@@ -33,14 +43,16 @@ def form_is_open():
 def run():
     print("Starting...")
     while not(is_time()):
-        print("")
+        print("Not time yet...", flush = True)
+        sleep(5)
     while not(form_is_open()):
-        print("Checking if form open...")
+        print("Checking if form open...", flush = True)
+        sleep(5)
     fill_form()
     submit_form()
 
 def main():
-    print("Running script", flush = True)
+    run()
 
 if __name__ == "__main__":
     main()
