@@ -23,7 +23,7 @@ def fill_form():
 def submit_form():
     pass
 
-def is_time():
+def is_time(offset_minute = 0):
     now = datetime.now()
 
     # Check if it is Thursday
@@ -32,11 +32,15 @@ def is_time():
     # Check if it is 12:30PM
     is_1230_pm = now.hour == 12 and now.minute == 30
 
-    if is_thursday and is_1230_pm:
+    # Check if it is within 10min after specified time
+    is_in_10min = now.hour == 12 and now.minute <= 40 and now.minute >= 30
+
+    if is_thursday and is_in_10min:
         return True
     else:
         return False
 
+# Could use ML to predict form open time period
 def within_speculated_timeframe():
     pass
 
@@ -46,7 +50,7 @@ def form_is_open():
 def run():
     print("Starting...")
 
-    while not(is_time() and within_speculated_timeframe()):
+    while not(is_time()) and not():
         print("Not time yet...", flush = True)
         sleep(5)
     while not(form_is_open()):
