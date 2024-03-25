@@ -51,11 +51,11 @@ def run():
     print("Starting...")
 
     while not(is_time()) and not():
+        sleep(3)
         print("Not time yet...", flush = True)
-        sleep(5)
     while not(form_is_open()):
+        sleep(3)
         print("Checking if form open...", flush = True)
-        sleep(5)
 
     fill_form()
     submit_form()
