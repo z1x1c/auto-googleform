@@ -37,17 +37,22 @@ def is_time():
     else:
         return False
 
+def within_speculated_timeframe():
+    pass
+
 def form_is_open():
     pass
 
 def run():
     print("Starting...")
-    while not(is_time()):
+
+    while not(is_time() and within_speculated_timeframe()):
         print("Not time yet...", flush = True)
         sleep(5)
     while not(form_is_open()):
         print("Checking if form open...", flush = True)
         sleep(5)
+
     fill_form()
     submit_form()
 
