@@ -1,5 +1,6 @@
 from datetime import datetime
 from time import sleep
+import requests
 
 def is_time():
     now = datetime.now()
