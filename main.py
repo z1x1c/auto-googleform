@@ -1,50 +1,27 @@
 from datetime import datetime
 from time import sleep
-import pytz
 
-# Settings
-url = ""
-timezone = "Pacific/Auckland"
-timestamps = ""
+def is_time():
+    now = datetime.now()
 
-def get_timezone_adjusted_timestamp(timezone_str, timestamp_str) -> datetime:
-    try:
-        timestamp = datetime.fromisoformat(timestamp_str)
-        target_timezone = pytz.timezone(timezone_str)
-        tz_aware_timestamp = timestamp.replace(tzinfo=pytz.utc).astimezone(target_timezone)
+    # Check if it is Monday
+    is_monday = now.weekday() == 0
 
-        return tz_aware_timestamp
-    except Exception as e:
-        print(f"Error converting timestamp to local time ({timezone})")
+    # Check if it is between 12:30-12:40 
+    is_in_timeframe = now.hour == 12 and now.minute <= 40 and now.minute >= 30
+
+    if is_monday and is_in_timeframe:
+        return True
+    else:
+        return False
+
+def form_is_open():
+    pass
 
 def fill_form():
     pass
 
 def submit_form():
-    pass
-
-def is_time(offset_minute = 0):
-    now = datetime.now()
-
-    # Check if it is Thursday
-    is_thursday = now.weekday() == 3
-
-    # Check if it is 12:30PM
-    is_1230_pm = now.hour == 12 and now.minute == 30
-
-    # Check if it is within 10min after specified time
-    is_in_10min = now.hour == 12 and now.minute <= 40 and now.minute >= 30
-
-    if is_thursday and is_in_10min:
-        return True
-    else:
-        return False
-
-# Could use ML to predict form open time period
-def within_speculated_timeframe():
-    pass
-
-def form_is_open():
     pass
 
 def run():
