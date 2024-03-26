@@ -33,7 +33,9 @@ def form_is_open(url):
         raise e
 
 def fill_form():
-    pass
+    email = ""
+    name = ""
+
 
 def submit_form():
     pass
