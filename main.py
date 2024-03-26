@@ -16,8 +16,21 @@ def is_time():
     else:
         return False
 
-def form_is_open():
-    pass
+def form_is_open(url):
+    try:
+        response = requests.get(url)
+        # Check if form accessible
+        if response.status_code == 200:
+            if "This form is no longer accepting responses" in response.text:
+                return False
+            else:
+                return True
+        else:
+            print(f"Form returned status code {response.status_code}.")
+            return False
+    except Exception as e:
+        print(f"An error occurred: {e}")
+        raise e
 
 def fill_form():
     pass
@@ -26,12 +39,14 @@ def submit_form():
     pass
 
 def run():
+    url = ""
+
     print("Starting...")
 
     while not(is_time()) and not():
         sleep(3)
         print("Not time yet...", flush = True)
-    while not(form_is_open()):
+    while not(form_is_open(url)):
         sleep(3)
         print("Checking if form open...", flush = True)
 
