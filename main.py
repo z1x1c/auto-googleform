@@ -33,8 +33,19 @@ def form_is_open(url):
         raise e
 
 def fill_form():
-    email = ""
-    name = ""
+    email = "test@test.com"
+    first_name = "John"
+    last_name = "Doe"
+    player_level = "Intermediate"
+    is_member = "Yes"
+    
+    value = {
+            "entry.emailAddress": email,
+            "entry.559352220": first_name,
+            "entry.1846655546": last_name,
+            "entry.877086558": player_level,
+            "entry.1459019614": is_member,
+            }
 
 
 def submit_form():
